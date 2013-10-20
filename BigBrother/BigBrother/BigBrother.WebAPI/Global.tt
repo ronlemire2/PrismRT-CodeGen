@@ -1,0 +1,4 @@
+<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".asax" #>
+<#@ include file="..\CommonTemplate\CommonTemplate.tt"#>
+<%@ Application Codebehind="Global.asax.cs" Inherits="<#= WebAPINamespace #>.WebApiApplication" Language="C#" %>

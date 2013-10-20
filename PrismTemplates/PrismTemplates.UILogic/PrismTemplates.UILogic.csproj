@@ -1,0 +1,368 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{4EA6D10B-CB65-4329-9AA3-A076A72F46E8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PrismTemplates.UILogic</RootNamespace>
+    <AssemblyName>PrismTemplates.UILogic</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{BC8A1FFA-BEE3-4634-8014-F334798102B3};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Constants.cs" />
+    <Compile Include="Events\BackgroundSubscriber.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BackgroundSubscriber.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Events\EntityDeletedEvent.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityDeletedEvent.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Events\TestFilterPubSubEvent.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestFilterPubSubEvent.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Events\TestPubSubEvent.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TestPubSubEvent.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Models\ComboBoxItemValue.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComboBoxItemValue.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CrudResult.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrudResult.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Entity.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Entity.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelValidationResult.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelValidationResult.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UrlAttribute.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UrlAttribute.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\IEntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IEntityRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Repositories\EntityRepository.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\DialogCommand.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DialogCommand.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ErrorMessagesHelper.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ErrorMessagesHelper.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\HttpResponseMessageExtensions.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HttpResponseMessageExtensions.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\IAlertMessageService.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IAlertMessageService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ICacheService.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ICacheService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\IEntityServiceProxy.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IEntityServiceProxy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ISecondaryTileService.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ISecondaryTileService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\ModelValidationException.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelValidationException.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\EntityServiceProxy.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityServiceProxy.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\RoamingCredentialStore.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RoamingCredentialStore.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Services\TemporaryFolderCacheService.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TemporaryFolderCacheService.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\EntityListPageViewModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityListPageViewModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\EntityDetailPageViewModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityDetailPageViewModel.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.Prism.PubSubEvents">
+      <HintPath>..\packages\Prism.PubSubEvents.1.0.0\lib\portable-sl4+wp7+windows8+net40\Microsoft.Practices.Prism.PubSubEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Prism.StoreApps">
+      <HintPath>..\packages\Prism.StoreApps.1.0.1\lib\windows8\Microsoft.Practices.Prism.StoreApps.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\winrt45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.13\lib\win8\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.0.0-rc1\lib\portable-wp8+netcore45+net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.13\lib\win8\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Events\BackgroundSubscriber.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>BackgroundSubscriber.cs</LastGenOutput>
+    </None>
+    <None Include="Events\EntityDeletedEvent.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntityDeletedEvent.cs</LastGenOutput>
+    </None>
+    <None Include="Events\TestFilterPubSubEvent.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TestFilterPubSubEvent.cs</LastGenOutput>
+    </None>
+    <None Include="Events\TestPubSubEvent.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TestPubSubEvent.cs</LastGenOutput>
+    </None>
+    <None Include="Models\ComboBoxItemValue.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ComboBoxItemValue.cs</LastGenOutput>
+    </None>
+    <None Include="Models\CrudResult.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CrudResult.cs</LastGenOutput>
+    </None>
+    <None Include="Models\ModelValidationResult.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelValidationResult.cs</LastGenOutput>
+    </None>
+    <None Include="Models\Entity.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Entity.cs</LastGenOutput>
+    </None>
+    <None Include="Models\UrlAttribute.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UrlAttribute.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Repositories\IEntityRepository.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IEntityRepository.cs</LastGenOutput>
+    </None>
+    <None Include="Repositories\EntityRepository.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntityRepository.cs</LastGenOutput>
+    </None>
+    <None Include="Services\DialogCommand.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DialogCommand.cs</LastGenOutput>
+    </None>
+    <None Include="Services\ErrorMessagesHelper.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ErrorMessagesHelper.cs</LastGenOutput>
+    </None>
+    <None Include="Services\HttpResponseMessageExtensions.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HttpResponseMessageExtensions.cs</LastGenOutput>
+    </None>
+    <None Include="Services\IAlertMessageService.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IAlertMessageService.cs</LastGenOutput>
+    </None>
+    <None Include="Services\ICacheService.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ICacheService.cs</LastGenOutput>
+    </None>
+    <None Include="Services\IEntityServiceProxy.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>IEntityServiceProxy.cs</LastGenOutput>
+    </None>
+    <None Include="Services\ISecondaryTileService.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ISecondaryTileService.cs</LastGenOutput>
+    </None>
+    <None Include="Services\ModelValidationException.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelValidationException.cs</LastGenOutput>
+    </None>
+    <None Include="Services\EntityServiceProxy.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntityServiceProxy.cs</LastGenOutput>
+    </None>
+    <None Include="Services\RoamingCredentialStore.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>RoamingCredentialStore.cs</LastGenOutput>
+    </None>
+    <None Include="Services\TemporaryFolderCacheService.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TemporaryFolderCacheService.cs</LastGenOutput>
+    </None>
+    <None Include="ViewModels\EntityDetailPageViewModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntityDetailPageViewModel.cs</LastGenOutput>
+    </None>
+    <None Include="ViewModels\EntityListPageViewModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EntityListPageViewModel.cs</LastGenOutput>
+    </None>
+    <PRIResource Include="Strings\en-US\Resources.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0' ">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.10\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

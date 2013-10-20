@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="PrismTemplatesDatabaseNameModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="PrismTemplatesDatabaseNameModelStoreContainer">
+          <EntitySet Name="CodeGenRules" EntityType="PrismTemplatesDatabaseNameModel.Store.CodeGenRules" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="CodeGenStrings" EntityType="PrismTemplatesDatabaseNameModel.Store.CodeGenStrings" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Entity" EntityType="PrismTemplatesDatabaseNameModel.Store.Entity" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="CodeGenRules">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TableName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ColumnName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ValidationRule" Type="nvarchar" Nullable="false" MaxLength="254" />
+          <Property Name="ClientSide" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CodeGenStrings">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="StringKey" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="StringValue" Type="nvarchar" Nullable="false" MaxLength="254" />
+          <Property Name="StringComment" Type="nvarchar" Nullable="false" MaxLength="254" />
+          <Property Name="EMHStringName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ClientSide" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Entity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="MarkedToDelete" Type="bit" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PrismTemplatesDatabaseNameModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PrismTemplatesDatabaseNameEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="CodeGenRules" EntityType="PrismTemplatesDatabaseNameModel.CodeGenRule" />
+          <EntitySet Name="CodeGenStrings" EntityType="PrismTemplatesDatabaseNameModel.CodeGenString" />
+          <EntitySet Name="Entities" EntityType="PrismTemplatesDatabaseNameModel.Entity" />
+        </EntityContainer>
+        <EntityType Name="CodeGenRule">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="TableName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ColumnName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ValidationRule" Type="String" Nullable="false" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="ClientSide" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CodeGenString">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="StringKey" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="StringValue" Type="String" Nullable="false" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="StringComment" Type="String" Nullable="false" MaxLength="254" Unicode="true" FixedLength="false" />
+          <Property Name="EMHStringName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="ClientSide" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Entity">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="MarkedToDelete" Type="Boolean" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PrismTemplatesDatabaseNameModelStoreContainer" CdmEntityContainer="PrismTemplatesDatabaseNameEntities">
+          <EntitySetMapping Name="CodeGenRules">
+            <EntityTypeMapping TypeName="PrismTemplatesDatabaseNameModel.CodeGenRule">
+              <MappingFragment StoreEntitySet="CodeGenRules">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="TableName" ColumnName="TableName" />
+                <ScalarProperty Name="ColumnName" ColumnName="ColumnName" />
+                <ScalarProperty Name="ValidationRule" ColumnName="ValidationRule" />
+                <ScalarProperty Name="ClientSide" ColumnName="ClientSide" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CodeGenStrings">
+            <EntityTypeMapping TypeName="PrismTemplatesDatabaseNameModel.CodeGenString">
+              <MappingFragment StoreEntitySet="CodeGenStrings">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="StringKey" ColumnName="StringKey" />
+                <ScalarProperty Name="StringValue" ColumnName="StringValue" />
+                <ScalarProperty Name="StringComment" ColumnName="StringComment" />
+                <ScalarProperty Name="EMHStringName" ColumnName="EMHStringName" />
+                <ScalarProperty Name="ClientSide" ColumnName="ClientSide" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Entities">
+            <EntityTypeMapping TypeName="PrismTemplatesDatabaseNameModel.Entity">
+              <MappingFragment StoreEntitySet="Entity">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MarkedToDelete" ColumnName="MarkedToDelete" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

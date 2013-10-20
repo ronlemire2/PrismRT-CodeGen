@@ -1,0 +1,40 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ include file="..\..\CommonTemplate\CommonTemplate.tt"#>
+<#
+    string EntityKey = "EntityId";
+    string EntityKeyParameter = "entityId";
+    string EntityName = "Entity";
+    string EntityNamePlural = "Entities";
+    string EntityNameParameter = "entity";
+    string EntityNamePluralParameter = "entities";
+#>
+using <#= UILogicModelsNamespace #>;
+using System;
+using System.Globalization;
+using Windows.UI.Core;
+using Windows.UI.Popups;
+
+namespace <#= UILogicEventsNamespace #> 
+{
+    public class BackgroundSubscriber
+    {
+        CoreDispatcher _dispatcher;
+        public BackgroundSubscriber(CoreDispatcher dispatcher) {
+            _dispatcher = dispatcher;
+        }
+
+        public void HandlePhoneCallDeleted(<#= EntityName #> <#= EntityNameParameter #>) {
+            var threadId = Environment.CurrentManagedThreadId;
+            var <#= EntityKeyParameter #> = <#= EntityNameParameter #>.Id;
+
+            // Assign into local variable because it is meant to be fire and forget and calling would require an await/async
+            var dialogAction = _dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                MessageDialog dialog = new MessageDialog(string.Format(CultureInfo.InvariantCulture,
+                    "PhoneCall {0} deleted in background subscriber on thread {1}", <#= EntityKeyParameter #>, threadId));
+                var showAsync = dialog.ShowAsync();
+            });
+        }
+    }
+}

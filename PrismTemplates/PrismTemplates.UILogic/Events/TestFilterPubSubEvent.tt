@@ -1,0 +1,15 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ include file="..\..\CommonTemplate\CommonTemplate.tt"#>
+<#
+    string EntityName = "Entity";
+#>
+using <#= UILogicModelsNamespace #>;
+using <#= PrismPubSubEventsNamespace #>;
+
+namespace <#= UILogicEventsNamespace #>
+{
+    public class TestFilterPubSubEvent : PubSubEvent<<#= EntityName #>>
+    {
+    }
+}
